@@ -43,7 +43,16 @@ export const TopPage = () => {
         <input type="submit" value="コードを取得" id="fetchCode" />
       </form>
 
-      <Editor theme={"vs-dark"} height={"75%"} language={"ruby"} value={code} />
+      <Editor
+        theme={"vs-dark"}
+        height={"75%"}
+        language={"ruby"}
+        value={code}
+        onChange={(value) => {
+          if (!value) return;
+          setCode(value);
+        }}
+      />
 
       <label htmlFor="sendButton">コードをアップロード</label>
       <input
